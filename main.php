@@ -1,7 +1,6 @@
 <?php
 
 require 'vendor/autoload.php';
-include "function.php";
 
 use Carbon\Carbon;
 use GuzzleHttp\Client;
@@ -16,8 +15,6 @@ $merchant_salt	= $ini['merchant_salt'];
 $client = new Client([
     'base_uri' => 'https://www.paytr.com/odeme/api/',
 ]);
-
-
 
 function binsorgu($bin_number){
     global $client, $merchant_id, $merchant_key, $merchant_salt;
@@ -48,6 +45,7 @@ function binsorgu($bin_number){
     else
         return json_encode($result);
 }
+
 
 $bin_number = $_GET['bin'];
 
